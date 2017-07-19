@@ -1,0 +1,17 @@
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\bin\Release\808FileCrypter.exe.config
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\bin\Release\808FileCrypter.exe
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\bin\Release\808FileCrypter.pdb
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\bin\Release\808FileCrypter.xml
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\_808FileCrypter.Form1.resources
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\_808FileCrypter.FrmLoader.resources
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\_808FileCrypter.FrmSingle.resources
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\_808FileCrypter.Resources.resources
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.vbproj.GenerateResource.Cache
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.exe
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.xml
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.pdb
+J:\dev\project\808\v2\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.vbprojResolveAssemblyReference.cache
+C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\bin\Release\808FileCrypter.exe.config
+C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.exe
+C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.xml
+C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.pdb
