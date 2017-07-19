@@ -15,3 +15,15 @@ C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\bin\Release\
 C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.exe
 C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.xml
 C:\Users\user6\Desktop\Source\crypter\808FileCrypter\808FileCrypter\obj\Release\808FileCrypter.pdb
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\bin\Release\808FileCrypter.exe.config
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\808FileCrypter.exe
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\808FileCrypter.xml
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\808FileCrypter.pdb
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\bin\Release\808FileCrypter.exe
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\bin\Release\808FileCrypter.pdb
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\bin\Release\808FileCrypter.xml
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\_808FileCrypter.Form1.resources
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\_808FileCrypter.FrmLoader.resources
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\_808FileCrypter.FrmSingle.resources
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\_808FileCrypter.Resources.resources
+C:\Users\user6\Desktop\crypter\source\crypter jadid\808FileCrypter\obj\Release\808FileCrypter.vbproj.GenerateResource.Cache

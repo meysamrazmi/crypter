@@ -22,5 +22,20 @@
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:_808FileCrypter.My.Resources.Resources.filelock">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:_808FileCrypter.My.Resources.Resources.filelock1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:_808FileCrypter.My.Resources.Resources.packagelock">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 </members>
 </doc>

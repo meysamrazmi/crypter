@@ -44,7 +44,7 @@ Namespace ProgressBarSample
                 Dim location As New Point(Convert.ToInt32((Width / 2) - len.Width / 2), Convert.ToInt32((Height / 2) - len.Height / 2))
                 ' The commented-out code will centre the text into the highlighted area only. This will centre the text regardless of the highlighted area.
                 ' Draw the custom text
-                g.DrawString(text, f, Brushes.Red, location)
+                g.DrawString(text, f, Brushes.White, location)
             End Using
         End Sub
     End Class

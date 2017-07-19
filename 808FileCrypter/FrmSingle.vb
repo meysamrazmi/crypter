@@ -31,7 +31,6 @@ Public Class FrmSingle
             Exit Sub
         End If
 
-
         Try
             Dim destPath As String = Path.Combine(txtDest.Text, "data")
             Dim binfile As String = Path.Combine(destPath, "data.bin")
@@ -78,9 +77,6 @@ Public Class FrmSingle
         Catch ee As Exception
             MsgBox("خطا حین عملیات:" & vbNewLine & ee.Message, vbCritical, "خطا")
         End Try
-
-
-
     End Sub
 
     Private Sub BtnSelectDemo_Click(sender As Object, e As EventArgs) Handles BtnSelectDemo.Click
@@ -93,6 +89,5 @@ Public Class FrmSingle
             End If
         End If
     End Sub
-
 
 End Class

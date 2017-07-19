@@ -71,7 +71,7 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Loader.ico</ApplicationIcon>
+    <ApplicationIcon>808.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -184,7 +184,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="808.ico" />
+    <None Include="image\filelock.ico" />
+    <None Include="image\filelock.png" />
     <Content Include="image\mp4.jpg" />
+    <None Include="image\packagelock.ico" />
     <Content Include="Loader.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

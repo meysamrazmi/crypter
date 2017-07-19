@@ -22,6 +22,23 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        If TextBox1.Text = "" Or TextBox1.Text.Length < 20 Then
+            MsgBox("پوشه ای را برای قفل گزاری انتخاب نکرده اید.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
+        If TxtPackageCode.Text = "" Or TxtPackageCode.Text.Length < 2 Then
+            MsgBox("کد پکیج را درست وارد کنید. برای بوجود نیامدن مشکلات آتی حد اقل 2 حرف در نظر بگیرید.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
+        If TxtOtherProducts.Text = "" Or TxtHelpFile.Text = "" Or TxtOtherProducts.Text.Length < 20 Or TxtHelpFile.Text.Length < 20 Then
+            MsgBox("فایل های راهنما و سایر محصولات اجباری هستند.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
+        If txtServerURI.Text = "" Or txtServerURI.Text.Length < 20 Then
+            MsgBox("آدرس سایت اشتباه است.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
+
         progress.Value = 0
         Me.Refresh()
         Dim plainDataFolder As String = FolderBrowserDialog2.SelectedPath
@@ -50,15 +67,14 @@ Public Class Form1
         If TxtOtherProducts.Text <> "" Then FileSystem.FileCopy(TxtOtherProducts.Text, HelpFolder & "\OP.msc")
         If TxtHelpFile.Text <> "" Then FileSystem.FileCopy(TxtHelpFile.Text, HelpFolder & "\HP.msc")
 
-
         GboxVideos.Enabled = True
         videoDetailsTask(True)
-        btnChooseVideoDir.Enabled = False
+        GroupBox1.Enabled = False
+        GroupBox2.Enabled = False
+        GroupBox3.Enabled = False
     End Sub
 
-
     Public Sub EncryptDirectory(ByVal sourcePath As String, ByVal viewDirPath As String)
-
         Dim sourceDirectoryInfo As New System.IO.DirectoryInfo(sourcePath)
 
         ' If the destination folder don't exist then create it
@@ -68,7 +84,6 @@ Public Class Form1
         If Not Directory.Exists(viewDirPath) Then
             Directory.CreateDirectory(viewDirPath)
         End If
-
 
         Dim fileSystemInfo As FileSystemInfo
         For Each fileSystemInfo In sourceDirectoryInfo.GetFileSystemInfos
@@ -112,33 +127,6 @@ Public Class Form1
     Private Sub changeProgress()
         countedNumber += 1
         progress.Value = CInt((countedNumber / filesCount) * 100)
-    End Sub
-
-
-
-    Private Sub txtServerURI_Enter(sender As Object, e As EventArgs) Handles txtServerURI.Enter
-        If txtServerURI.Text = "http://www.example.com/808.php" Then
-            txtServerURI.Text = ""
-            txtServerURI.ForeColor = Color.Black
-        End If
-    End Sub
-
-    Private Sub txtServerURI_Leave(sender As Object, e As EventArgs) Handles txtServerURI.Leave
-        If txtServerURI.Text.Trim = "" Then
-            txtServerURI.Text = "http://www.example.com/808.php"
-            txtServerURI.ForeColor = Color.LightGray
-        End If
-    End Sub
-
-
-
-
-    Private Sub btnChooseVideoDir_Click(sender As Object, e As EventArgs) Handles btnChooseVideoDir.Click
-        If FolderBrowserDialog3.ShowDialog = DialogResult.OK Then
-            viewVideoFolder = FolderBrowserDialog3.SelectedPath
-            GboxVideos.Enabled = True
-            videoDetailsTask(True)
-        End If
     End Sub
 
     Private Sub GboxVideos_EnabledChanged(sender As Object, e As EventArgs) Handles GboxVideos.EnabledChanged
@@ -194,7 +182,7 @@ Public Class Form1
             End If
             If imgCount > 0 Then
                 If TxtPicture.Text = "" Then
-                    TxtPicture.Text = Path.Combine(Environment.CurrentDirectory, "image\mp4.jpg")
+                    TxtPicture.Text = Path.Combine(Environment.CurrentDirectory, "image\mp4.png")
                 End If
 
                 'index Code start
@@ -259,13 +247,18 @@ Public Class Form1
 
 
 
-                If (File.Exists(Path.Combine(Directory.GetParent(viewVideoFolder).FullName, "mp4.jpg"))) = False Then
-                    FileSystem.FileCopy(Path.Combine(Environment.CurrentDirectory, "image\mp4.jpg"), Path.Combine(Directory.GetParent(viewVideoFolder).FullName, "mp4.jpg"))
+                If (File.Exists(Path.Combine(Directory.GetParent(viewVideoFolder).FullName, "mp4.png"))) = False Then
+                    FileSystem.FileCopy(Path.Combine(Environment.CurrentDirectory, "image\mp4.png"), Path.Combine(Directory.GetParent(viewVideoFolder).FullName, "mp4.jpg"))
                 End If
 
 
                 MsgBox("با موفقیت انجام شد", MsgBoxStyle.Information, "")
-                btnChooseVideoDir.Enabled = True
+                GboxVideos.Enabled = False
+                videoDetailsTask(False)
+                GroupBox1.Enabled = True
+                GroupBox2.Enabled = True
+                GroupBox3.Enabled = True
+                TextBox1.Text = ""
             Else
                 lblCount.Text = "(" & imgCount & "|" & imgArray.Count & "):"
                 chkAdd.Checked = True
@@ -295,4 +288,5 @@ Public Class Form1
             TxtOtherProducts.Text = OpenFileDialog2.FileName
         End If
     End Sub
+
 End Class
