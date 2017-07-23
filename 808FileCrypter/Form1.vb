@@ -22,20 +22,20 @@ Public Class Form1
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        If TextBox1.Text = "" Or TextBox1.Text.Length < 20 Then
+        If TextBox1.Text.Length < 20 Then
             MsgBox("پوشه ای را برای قفل گزاری انتخاب نکرده اید.", MsgBoxStyle.Information, "خطا")
             Exit Sub
         End If
-        If TxtPackageCode.Text = "" Or TxtPackageCode.Text.Length < 2 Then
+        If PackageName.Text = "اسم کامل پکیج" Or PackageName.Text.Length < 2 Then
+            MsgBox("اسم پکیج برای نمایش در برنامه اجباری است.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
+        If TxtPackageCode.Text.Length < 2 Then
             MsgBox("کد پکیج را درست وارد کنید. برای بوجود نیامدن مشکلات آتی حد اقل 2 حرف در نظر بگیرید.", MsgBoxStyle.Information, "خطا")
             Exit Sub
         End If
-        If TxtOtherProducts.Text = "" Or TxtHelpFile.Text = "" Or TxtOtherProducts.Text.Length < 20 Or TxtHelpFile.Text.Length < 20 Then
+        If TxtOtherProducts.Text.Length < 20 Or TxtHelpFile.Text.Length < 20 Then
             MsgBox("فایل های راهنما و سایر محصولات اجباری هستند.", MsgBoxStyle.Information, "خطا")
-            Exit Sub
-        End If
-        If txtServerURI.Text = "" Or txtServerURI.Text.Length < 20 Then
-            MsgBox("آدرس سایت اشتباه است.", MsgBoxStyle.Information, "خطا")
             Exit Sub
         End If
 
@@ -56,8 +56,9 @@ Public Class Form1
 
         EncryptDirectory(plainDataFolder, viewfolder)
 
+        Dim serveruri As String = "http://lock.civil808.com/808.php"
         'write settings
-        Dim SettingsStr As String = txtServerURI.Text.Trim & "@@" & TxtPackageCode.Text.Trim.ToLower & "@@" & folderCheksum(binFolder)
+        Dim SettingsStr As String = serveruri.Trim & "@@" & TxtPackageCode.Text.Trim.ToLower & "@@" & folderCheksum(binFolder) & "@@" & PackageName.Text.Trim & "@@" & lblversion.Text.Trim
         File.WriteAllBytes(appFolder & "\Loader32.dll", CryptBytes(Encoding.UTF32.GetString(password), Encoding.UTF8.GetBytes(AES_encrypt(SettingsStr)), True))
 
         'Copy HelpFile & otherProducts
@@ -286,6 +287,20 @@ Public Class Form1
     Private Sub BtnOtherProducts_Click(sender As Object, e As EventArgs) Handles BtnOtherProducts.Click
         If OpenFileDialog2.ShowDialog() = DialogResult.OK Then
             TxtOtherProducts.Text = OpenFileDialog2.FileName
+        End If
+    End Sub
+
+    Private Sub PackageName_GotFocus(sender As Object, e As EventArgs) Handles PackageName.GotFocus
+        If PackageName.Text = "اسم کامل پکیج" Then
+            PackageName.Text = ""
+            PackageName.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub PackageName_LostFocus(sender As Object, e As EventArgs) Handles PackageName.LostFocus
+        If PackageName.Text = "" Then
+            PackageName.Text = "اسم کامل پکیج"
+            PackageName.ForeColor = Color.Silver
         End If
     End Sub
 

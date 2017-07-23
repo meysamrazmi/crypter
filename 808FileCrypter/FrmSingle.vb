@@ -24,6 +24,10 @@ Public Class FrmSingle
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        If PackageName.Text = "اسم کامل پکیج" Or PackageName.Text.Length < 2 Then
+            MsgBox("اسم پکیج برای نمایش در برنامه اجباری است.", MsgBoxStyle.Information, "خطا")
+            Exit Sub
+        End If
         If txtDest.Text.Length < 2 Or TxtMainFile.Text.Length < 2 Or CmbFormat.SelectedIndex < 0 Then
             MsgBox("فیلدها را به درستی و طبق مراحل پر کنید", vbCritical, "خطا")
             txtDest.Text = ""
@@ -70,7 +74,8 @@ Public Class FrmSingle
                 FileSystem.FileCopy(TxtDemoPath.Text, Path.Combine(destPath, "demo.mov"))
             End If
 
-            Dim SettingsStr As String = txtServerURI.Text.Trim & "@@" & TxtPackageCode.Text.Trim.ToLower & "@@" & ToMD5(File.ReadAllBytes(detailsfile))
+            Dim serveruri As String = "http://lock.civil808.com/808.php"
+            Dim SettingsStr As String = serveruri.Trim & "@@" & TxtPackageCode.Text.Trim.ToLower & "@@" & ToMD5(File.ReadAllBytes(detailsfile)) & "@@" & PackageName.Text.Trim & "@@" & lblversion.Text.Trim
             File.WriteAllBytes(destPath & "\Loader32.dll", CryptBytes(Encoding.UTF32.GetString(password), Encoding.UTF8.GetBytes(AES_encrypt(SettingsStr)), True))
 
             MsgBox("با موفقیت انجام شد", vbInformation, "موفق")
@@ -89,5 +94,17 @@ Public Class FrmSingle
             End If
         End If
     End Sub
+    Private Sub PackageName_GotFocus(sender As Object, e As EventArgs) Handles PackageName.GotFocus
+        If PackageName.Text = "اسم کامل پکیج" Then
+            PackageName.Text = ""
+            PackageName.ForeColor = Color.Black
+        End If
+    End Sub
 
+    Private Sub PackageName_LostFocus(sender As Object, e As EventArgs) Handles PackageName.LostFocus
+        If PackageName.Text = "" Then
+            PackageName.Text = "اسم کامل پکیج"
+            PackageName.ForeColor = Color.Silver
+        End If
+    End Sub
 End Class
