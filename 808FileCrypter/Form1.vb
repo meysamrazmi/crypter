@@ -233,7 +233,11 @@ Public Class Form1
 
                 'str_list to string
                 Dim Result As String = ""
-                txtStr.Sort()
+
+                'sort based on selected sorting
+                'example of each item in tstStr : 1@TS1CZXRvbi1DbGFzczAxLm1wNA==@MQ==@XRvbi1D@XRvbi1D==@1.png
+                txtStr = txtStr.OrderBy(Function(q) Int32.Parse(q.Split("@").First)).ToList()
+
                 For Each txtItem As String In txtStr
                     Result &= txtItem.Substring(txtItem.IndexOf("@") + 1)
                 Next

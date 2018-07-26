@@ -1,3 +1,4 @@
 # Ignore paths that contain generated content.
-*bin/
+obj/
+bin/
 .vs
